@@ -35,6 +35,7 @@
 // Includes for google test and the unit under test.
 
 #include <climits>
+#include <cstdint>
 #include <fstream>
 
 #include "gtest/gtest.h"
@@ -47,9 +48,9 @@ using namespace ::testing_internal;
 
 class HelloWorldTest : public ::testing::Test {
 protected:
-    static const uint MAX_TESTED_SCORE = 20;
-    static const uint MAX_OVERALL_SCORE = 25;
-    static uint _testScore;
+    static const uint64_t MAX_TESTED_SCORE = 20;
+    static const uint64_t MAX_OVERALL_SCORE = 25;
+    static uint64_t _testScore;
 
 protected:
     static void TearDownTestCase() {
@@ -72,15 +73,15 @@ protected:
     }
 };
 
-uint HelloWorldTest::_testScore = 0;
+uint64_t HelloWorldTest::_testScore = 0;
 
 // Tests returned string of greetWorld().
 TEST_F(HelloWorldTest, Positive) {
   // This test is named "Positive", and belongs to the "HelloWorld"
   // test case.
 
-  std::system("./HelloWorld > ./test.txt");
-  char buf[14];
+  std::system("HelloWorld > ./test.txt");
+  char buf[] = { '\0','\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0', '\0', '\0' };
   std::ifstream("./test.txt").rdbuf()->sgetn(buf, 14);
   ASSERT_STREQ("Hello, World!\n", buf);
 
