@@ -80,7 +80,11 @@ TEST_F(HelloWorldTest, Positive) {
   // This test is named "Positive", and belongs to the "HelloWorld"
   // test case.
 
+#ifdef WIN32
+  std::system("HelloWorld > ./test.txt");
+#else 
   std::system("./HelloWorld > ./test.txt");
+#endif
   char buf[] = { '\0','\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0' ,'\0', '\0', '\0' };
   std::ifstream("./test.txt").rdbuf()->sgetn(buf, 14);
   ASSERT_STREQ("Hello, World!\n", buf);
