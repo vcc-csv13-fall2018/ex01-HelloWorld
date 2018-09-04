@@ -27,9 +27,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// A unit tester for EX01-HelloWorld in CS140 at Santa Barbara City College.
+// A unit tester for EX01-HelloWorld in CSV13 at Ventura College.
 //
-// Author: ahknight@pipeline.sbcc.edu (Allan Knight)
+// Author: aknight@vcccd.edu (Allan Knight)
 
 
 // Includes for google test and the unit under test.
